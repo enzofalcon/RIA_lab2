@@ -1,0 +1,14 @@
+<form action="{% url 'control_asistencia:marcar_asistencia' %}" method="POST">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>Marcar asistencia</h1></legend>
+        <label>Fecha: {{fecha}}</label>
+        <br>
+        <label>Nombre del estudiante</label>
+        <input name="nombre" placeholder="Nombre" required="true">
+        <br>
+        <label>Cedula del estudiante</label>
+        <input name="cedula" placeholder="Cedula" required="true">
+    </fieldset>
+    <input type="submit" value="Enviar">
+</form>
