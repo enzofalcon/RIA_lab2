@@ -13,7 +13,7 @@ Navega a visualización de asistencias.
 Navega a marcar asistencia.
 """
 def index(request):
-    return ""
+    return render(request, "control_asistencia/docente/index.html")
 
 
 
@@ -22,8 +22,8 @@ def index(request):
 
 Listar fechas en las cuales cierta materia tiene asistencias
 """
-def seleccionar_materia_fecha(request):
-    return ""
+def seleccionar_materia_fecha(request, id):
+    return render(request, "control_asistencia/docente/seleccionar_materia_fecha.html", {"id":id})
 
 
 
@@ -32,15 +32,16 @@ def seleccionar_materia_fecha(request):
 
 Listas asistencias para cierta materia en cierta fecha
 """
-def asistencias_materia(request):
-    return ""
+def asistencias_materia(request, id, fecha):
+    return render(request, "control_asistencia/docente/asistencias.html", {"id":id, "fecha":fecha})
+
 
 
 
 """
-/docente/materias/:id/marcar_asistencia
+/docente/materias/:id/qr_asistencia
 
 Generar QR para marcar asistencia en cierta materia en la fecha de hoy
 """
-def marcar_asistencia(request):
-    return ""
+def qr_asistencia(request, id):
+    return render(request, "control_asistencia/docente/qr_asistencia.html", {"id":id})

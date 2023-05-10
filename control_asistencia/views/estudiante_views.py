@@ -11,7 +11,7 @@ Index del estudiante.
 Listar materias del estudiante.
 """
 def index(request):
-    return ""
+    return render(request, "control_asistencia/estudiante/index.html")
 
 
 
@@ -20,8 +20,8 @@ def index(request):
 
 Dada una materia, ver las asistencias del estudiante.
 """
-def asistencias_de_materia(request):
-    return ""
+def asistencias_de_materia(request, id):
+    return render(request, "control_asistencia/estudiante/asistencias.html", {"id":id})
 
 
 """
@@ -29,5 +29,5 @@ def asistencias_de_materia(request):
 
 Dado un link, introducir asistencia
 """
-def marcarAsistencia(request):
-    return ""
+def marcar_asistencia(request, id):
+    return render(request, "control_asistencia/estudiante/marcar_asistencia.html", {"id":id})
