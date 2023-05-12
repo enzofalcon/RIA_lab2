@@ -1,6 +1,9 @@
-<form>
+{% if mensaje %}
+    <div>{{mensaje}}</div>
+{% endif %}
+<form method="post">
     {% csrf_token %}
-    <input placeholder="email">
-    <input placeholder="contraseña">
-    <input type="submit" value="Iniciar sesión">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Log in">
 </form>

@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.utils import timezone
-
+from django.contrib.auth.decorators import login_required
+from ..utils.group_redirect import group_required
 
 """
 /estudiante
@@ -10,6 +11,8 @@ Index del estudiante.
 
 Listar materias del estudiante.
 """
+@login_required
+@group_required('Estudiante')
 def index(request):
     return render(request, "control_asistencia/estudiante/index.html")
 
