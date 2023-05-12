@@ -9,7 +9,7 @@ urlpatterns = [
     path("", autentificacion.inicioSesion, name="inicioSesion"),
     path("logout", autentificacion.cerrarSesion, name="cerrarSesion"),
     path("estudiante", estudiante_views.index, name="estudiante.index"),
-    path("estudiante/materias/<int:id>", estudiante_views.asistencias_de_materia, name="estudiante.asistencias_de_materia"),
+    path("estudiante/materias/<str:id>", estudiante_views.asistencias_de_materia, name="estudiante.asistencias_de_materia"),
     path("estudiante/marcar_asistencia/<str:id>", estudiante_views.marcar_asistencia, name="estudiante.marcar_asistencia"),
 
     path("docente", docente_views.index, name="docente.index"),

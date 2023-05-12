@@ -1,1 +1,5 @@
-ASISTENCIAS de materia {{id}}
+ASISTENCIAS de {{materia.nombre}}
+
+{% for asistencia in asistencias %}
+<li>{{asistencia.fecha}}</li>
+{% endfor %}

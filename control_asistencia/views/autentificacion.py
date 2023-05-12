@@ -13,17 +13,16 @@ def inicioSesion (request):
         user=authenticate(request,username=username,password=password)
         if user is not None:
             login(request,user)
-            if user.groups.filter(name = 'Docente').exists():
+            if user.groups.filter(name = 'Grupo_DOCENTES').exists():
                 return HttpResponseRedirect(reverse("control_asistencia:docente.index"))
-            if user.groups.filter(name = "Estudiante").exists():
+            if user.groups.filter(name = "Grupo_ESTUDIANTES").exists():
                 return HttpResponseRedirect(reverse("control_asistencia:estudiante.index"))
-            if user.groups.filter(name = "BEDELIA").exists():
+            if user.groups.filter(name = "Grupo_BEDELIAS").exists():
                 return HttpResponseRedirect('/admin')
         else:
             return render(request,"control_asistencia/inicio_sesion.html",{
                 "message":"Invalid Credentials"
             })
-        return render(request,"control_asistencia/inicio_sesion.html",{"mensaje":"Credenciales invalidas"})
     
 def cerrarSesion(request):
     logout(request)

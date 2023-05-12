@@ -1,1 +1,7 @@
 INDEX ESTUDIANTE
+
+<div>Hola {{user.username}}</div>
+
+{% for materia in materias %}
+<li><a href="{% url 'control_asistencia:estudiante.asistencias_de_materia' materia.uid %}">{{ materia.nombre }}</a></li>
+{% endfor %}
