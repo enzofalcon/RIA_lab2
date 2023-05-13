@@ -16,7 +16,9 @@ Navega a marcar asistencia.
 @login_required
 @group_required('Grupo_DOCENTES')
 def index(request):
-    return render(request, "control_asistencia/docente/index.html")
+    user = request.user
+    materias = user.materiasDocente.all()
+    return render(request, "control_asistencia/docente/index.html", {"usuario":user, "materias":materias})
 
 
 
@@ -28,8 +30,7 @@ Listar fechas en las cuales cierta materia tiene asistencias
 @login_required
 @group_required('Grupo_DOCENTES')
 def seleccionar_materia_fecha(request, id):
-    return render(request, "control_asistencia/docente/seleccionar_materia_fecha.html", {"id":id})
-
+     return render(request, "control_asistencia/docente/seleccionar_materia_fecha.html", {"materia":id})
 
 
 """

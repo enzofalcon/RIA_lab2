@@ -1,1 +1,23 @@
-SELECCIONAR FECHA MATERIA {{id}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fechas de materia</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Fechas que se dicto: {{materia.nombre}}</h1>
+                <ul>
+                    {% for fecha in fechas %}
+                    <li><a href="{% url 'control_asistencia:docente.asistencias_de_fecha' materia.uid fecha.uid %}">{{ fecha.fecha }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</html>
