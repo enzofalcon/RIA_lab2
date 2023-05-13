@@ -1,9 +1,30 @@
-{% if mensaje %}
-    <div>{{mensaje}}</div>
-{% endif %}
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Log in">
-</form>
+<!DOCTYPE html>
+<html>    
+    <head>
+        <title> Laboratorio 2 </title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+    </head>
+    <body>
+        {% if mensaje %}
+            <div>{{mensaje}}</div>
+        {% endif %} 
+        <form method="post">
+            {% csrf_token %}
+            <div class="Login">
+                <label for="IngresoCI">Ingrese su cédula </label>
+            </div>
+            <div class="input">
+                <input type="text" name="username" placeholder="Cédula">
+            </div>
+            <div class="Login">
+                <label for="IngresoPass">Ingrese su contraseña </label>
+            </div>
+            <div class="input">
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+            <div class="boton">
+            <p><input type="submit" value="Iniciar sesión"></p>
+            </div>
+    </form>
+</body>
+</html>
