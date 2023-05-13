@@ -22,7 +22,7 @@ def index(request):
 
 
 """
-/estudiante/materias/:id
+/estudiante/:id
 
 Dada una materia, ver las asistencias del estudiante.
 """
@@ -35,7 +35,7 @@ def asistencias_de_materia(request, id):
 
 
 """
-/estudiante/marcar_asistencia/:id
+/estudiante/:id
 
 Dado un link, introducir asistencia
 """

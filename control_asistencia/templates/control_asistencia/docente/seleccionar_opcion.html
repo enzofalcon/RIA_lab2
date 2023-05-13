@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleccionar opcion</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Seleccione una opcion</h1>
+
+                <br>
+                    <a href = "{% url 'control_asistencia:seleccionar_materia_fecha'%}">Ver asistencias</a>
+                <br>
+                #esta bien el href o hay que poner docentes en el medio?
+                <br>
+                    <a href = "{% url 'control_asistencia:qr_asistencia'%}">Generar QR</a>
+                <br>
+            </div>
+        </div>
+    </div>
+</html>

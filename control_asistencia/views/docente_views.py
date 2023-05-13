@@ -20,10 +20,8 @@ def index(request):
     materias = user.materiasDocente.all()
     return render(request, "control_asistencia/docente/index.html", {"usuario":user, "materias":materias})
 
-
-
 """
-/docente/materias/:id
+/docente/:id/asistencias
 
 Listar fechas en las cuales cierta materia tiene asistencias
 """
@@ -34,24 +32,23 @@ def seleccionar_materia_fecha(request, id):
 
 
 """
-/docente/materias/:id/:fecha
+/docente/:id/:fecha
 
 Listas asistencias para cierta materia en cierta fecha
 """
 @login_required
 @group_required('Grupo_DOCENTES')
 def asistencias_materia(request, id, fecha):
-    return render(request, "control_asistencia/docente/asistencias.html", {"id":id, "fecha":fecha})
-
+    return render(request, "control_asistencia/docente/asistencias.html", {"materia":id, "fecha":fecha})
 
 
 
 """
-/docente/materias/:id/qr_asistencia
+/docente/:id/qr_asistencia
 
 Generar QR para marcar asistencia en cierta materia en la fecha de hoy
 """
 @login_required
 @group_required('Grupo_DOCENTES')
 def qr_asistencia(request, id):
-    return render(request, "control_asistencia/docente/qr_asistencia.html", {"id":id})
+    return render(request, "control_asistencia/docente/qr_asistencia.html", {"materia":id})
