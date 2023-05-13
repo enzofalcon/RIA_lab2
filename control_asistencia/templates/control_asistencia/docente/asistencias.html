@@ -1,1 +1,37 @@
-ASISTENCIAS de materia {{id}} en fecha {{fecha}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asistencias</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1>Asistencias a {{materia.nombre}} el dia {{fecha.fecha}} </h1>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Asistio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for asistencia in asistencias %}
+                        <tr>
+                            <td>{{ asistencia.estudiante.nombre }}</td>
+                            <td>{{ asistencia.estudiante.apellido }}</td>
+                            <td>{{ asistencia.asistio }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</html>
