@@ -22,29 +22,8 @@ class Asistencia(models.Model):
     def __str__(self):
         return self.fecha.strftime(format="%Y-%m-%d") + " - " + self.materia.nombre + " - " + self.estudiante.username
 
-'''
+class QR(models.Model):
+    uid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
+    fecha = models.DateField()
+    materia = models.ForeignKey(Materia, on_delete=models.CASCADE, related_name='qrs')
 
-class 
-
-class Asistencia(models.Model):
-    nombre = models.CharField(max_length=255)
-    fecha = models.DateField("date published")
-    cedula = models.CharField(max_length=8)
-
-    def __str__(self):
-        return self.fecha.strftime("%d/%m/%y") + " - " + self.cedula + " - " + self.nombre
-
-
-
-
-from django.db import models
-
-class Docente(models.Model):
-    nombre = models.CharField(max_length=50)
-
-class Materia(models.Model):
-    nombre = models.CharField(max_length=50)
-    docente = models.ForeignKey(Docente, on_delete=models.CASCADE, related_name='materias')
-
-
-'''
