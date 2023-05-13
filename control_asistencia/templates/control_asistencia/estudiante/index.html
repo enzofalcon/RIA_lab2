@@ -1,7 +1,25 @@
-INDEX ESTUDIANTE
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <title>Menu docente</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
 
-<div>Hola {{user.username}}</div>
-
-{% for materia in materias %}
-<li><a href="{% url 'control_asistencia:estudiante.asistencias_de_materia' materia.uid %}">{{ materia.nombre }}</a></li>
-{% endfor %}
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Bienvenido {{user.username}}</h1>
+                <h2>Menu estudiante</h2>
+                <ul>
+                    {% for materia in materias %}
+                    <li><a href="{% url 'control_asistencia:docente.asistencias_de_materia' materia.uid %}">{{ materia.nombre }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
