@@ -11,10 +11,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Fechas que se dicto: {{materia.nombre}}</h1>
+                <h1>Clases - {{materia.nombre}}</h1>
                 <ul>
                     {% for fecha in fechas %}
-                    <li><a href="{% url 'control_asistencia:docente.asistencias_de_fecha' materia.uid fecha.uid %}">{{ fecha.fecha }}</a></li>
+                    <li><a href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid fecha %}">{{ fecha }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
