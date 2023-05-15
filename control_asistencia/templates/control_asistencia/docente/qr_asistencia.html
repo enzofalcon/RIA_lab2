@@ -1,1 +1,33 @@
-QR para materia {{id}}
+<!DOCTYPE html>
+<html>    
+    <head>
+        <meta charset="UTF-8">
+        <title> Laboratorio 2 </title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+    </head>
+    <h1>Registra tu asistencia para la materia {{id}}</h1> 
+    <body>
+        <div class="Texto_QR">
+            <h2>Escanea el siguiente código QR desde tu celular</h2>
+        </div>
+        <div class="imagen">
+            <img id="qr" src="" alt="En caso de queno sea vivible el QR, ingresar al siguiente siguiente." width="400" height="400" align="center"/>
+        </div>
+        <div class="Texto_QR">
+            <h2>En caso de no tener cámara en tu dispostivo, ingresa a la dirección:</h2>
+            <h3>{{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}</h3>
+        </div>
+    </body>
+
+
+    <script>
+        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}`)
+        .then(response => response.blob())
+        .then(blob => {
+          const urlImagen = URL.createObjectURL(blob);
+          const imagen = document.getElementById('qr');
+          imagen.src = urlImagen;
+          imagen.alt = ''; 
+        });
+    </script>
+</html>
