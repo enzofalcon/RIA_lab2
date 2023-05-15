@@ -11,6 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <a href="{% url 'control_asistencia:docente.index' %}">Volver al inicio</a>
                 <h1>Clases - {{materia.nombre}}</h1>
                 <ul>
                     {% for fecha in fechas %}

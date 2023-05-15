@@ -11,24 +11,20 @@
         <div class="row">
             <div class="col-md-12">
 
+                <a href="{% url 'control_asistencia:estudiante.index' %}">Volver atras</a>
+
                 <h1>Asistencias a {{materia.nombre}}</h1>
 
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Fecha</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Asistio</th>
                         </tr>
                     </thead>
                     <tbody>
                         {% for asistencia in asistencias %}
                         <tr>
                             <td>{{ asistencia.fecha }}</td>
-                            <td>{{ asistencia.estudiante.nombre }}</td>
-                            <td>{{ asistencia.estudiante.apellido }}</td>
-                            <td>{{ asistencia.asistio }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

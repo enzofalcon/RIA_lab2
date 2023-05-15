@@ -1,1 +1,23 @@
-MARCAR ASISTENCIA de materia {{id}}
+<!DOCTYPE html>
+<html>    
+    <head>
+        <meta charset="UTF-8">
+        <title> Confirmar asistencia </title>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+    </head>
+<body>
+
+    <h2>{{materia.nombre}}</h2>
+    
+    <h3 
+    {% if error %}
+        style="color: red"
+    {% else %}
+        style="color: black"
+    {% endif %}>
+        {{mensaje}}
+    </h3>
+
+    <a href="{% url 'control_asistencia:estudiante.index'%}">Volver al inicio</a>
+</body>
+</html>

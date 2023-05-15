@@ -10,12 +10,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <a href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
 
                 <h1>Asistencias - {{materia.nombre}} - {{fecha}} </h1>
 
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>Cedula</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>Asistio</th>
@@ -24,6 +26,7 @@
                     <tbody>
                         {% for asistencia in asistencias %}
                         <tr>
+                            <td>{{ asistencia.estudiante.username}}</td>
                             <td>{{ asistencia.estudiante.nombre }}</td>
                             <td>{{ asistencia.estudiante.apellido }}</td>
                             <td>{{ asistencia.asistio }}</td>

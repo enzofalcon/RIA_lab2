@@ -43,7 +43,7 @@ Listas asistencias para cierta materia en cierta fecha
 @group_required('Grupo_DOCENTES')
 def asistencias_materia(request, id, fecha):
     materia = Materia.objects.filter(uid = id).first()
-    asistencias = Asistencia.objects.filter(materia_id = id, fecha=fecha)    
+    asistencias = Asistencia.objects.filter(materia_id = id, fecha=fecha)
     return render(request, "control_asistencia/docente/asistencias.html", {"materia":materia, "fecha":fecha, "asistencias":asistencias})
 
 
