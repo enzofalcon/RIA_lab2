@@ -17,4 +17,5 @@ urlpatterns = [
     path("docente/<str:id>/asistencias", docente_views.seleccionar_materia_fecha, name="docente.seleccionar_fecha"),
     path("docente/<str:id>/qr_asistencia", docente_views.qr_asistencia, name="docente.qr_asistencia"),
     path("docente/<str:id>/<str:fecha>", docente_views.asistencias_materia, name="docente.asistencias_fecha"),
+    path("docente/cerrarSesion", docente_views.cerrarSesion, name="docente.cerrarSesion"),
 ]
