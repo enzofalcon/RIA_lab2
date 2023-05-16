@@ -20,15 +20,6 @@ def index(request):
     materias = user.materiasDocente.all()
     return render(request, "control_asistencia/docente/index.html", {"usuario":user, "materias":materias})
 
-"""
-Cerrarsesión
-"""
-@login_required
-@group_required('Grupo_DOCENTES')
-def cerrarSesion(request):
-    user = request.user
-    materias = user.materiasDocente.all()
-    return render(request, "control_asistencia/docente/cerrarSesion.html", {"usuario":user, "materias":materias})
 
 """
 /docente/:id/asistencias

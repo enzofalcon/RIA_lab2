@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate,login,logout
+from ..utils.group_redirect import group_required
+from django.contrib.auth.decorators import login_required
 
 def inicioSesion (request):
     if request.method == "GET":
@@ -27,3 +29,13 @@ def inicioSesion (request):
 def cerrarSesion(request):
     logout(request)
     return HttpResponseRedirect(reverse("control_asistencia:inicioSesion"))
+
+"""
+Cerrarsesión
+"""
+@login_required
+@group_required('Grupo_DOCENTES')
+def cerrar_Sesion(request):
+    user = request.user
+    materias = user.materiasDocente.all()
+    return render(request, "control_asistencia/cerrar_Sesion.html", {"usuario":user, "materias":materias})
