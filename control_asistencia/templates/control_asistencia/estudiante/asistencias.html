@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Asistencias</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+    {% include 'components/head.html' %}
+    {% include 'components/header.html' %}
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
 
-                <a href="{% url 'control_asistencia:estudiante.index' %}">Volver atras</a>
+                    <a href="{% url 'control_asistencia:estudiante.index' %}">Volver atras</a>
 
-                <h1>Asistencias a {{materia.nombre}}</h1>
+                    <h1>Asistencias a {{materia.nombre}}</h1>
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for asistencia in asistencias %}
-                        <tr>
-                            <td>{{ asistencia.fecha }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if asistencias %}
+                                {% for asistencia in asistencias %}
+                                <tr>
+                                    <td>{{ asistencia.fecha }}</td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td>Aún no se han computado asistencias para esta materia.</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    </body>
 </html>

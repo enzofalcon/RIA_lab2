@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>    
-    <head>
-        <meta charset="UTF-8">
-        <title> Laboratorio 2 </title>
-        <link rel="stylesheet" type="text/css" href="estilos.css">
-    </head>
+    {% include 'components/head.html' %}
+    {% include 'components/header.html' %}
     <a href="{% url 'control_asistencia:docente.index' %}">Volver atras</a>
     <h1>Registra tu asistencia para la materia {{id}}</h1> 
     <body>
@@ -12,7 +9,7 @@
             <h2>Escanea el siguiente código QR desde tu celular</h2>
         </div>
         <div class="imagen">
-            <img id="qr" src="" alt="En caso de queno sea vivible el QR, ingresar al siguiente siguiente." width="400" height="400" align="center"/>
+            <img id="qr" src="" alt="En caso de queno sea visible el QR, ingresar al siguiente." width="400" height="400" align="center"/>
         </div>
         <div class="Texto_QR">
             <h2>En caso de no tener cámara en tu dispostivo, ingresa a la dirección:</h2>

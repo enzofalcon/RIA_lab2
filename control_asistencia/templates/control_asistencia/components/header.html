@@ -1,0 +1,7 @@
+<header>
+    {% if user.is_authenticated %}
+        <p>Bienvenido, {{ user.username }} | <a href="{% url 'control_asistencia:cerrar_Sesion' %}">Desconectarse</a> </p>
+    {% else %}
+        <p><a href="{% url 'control_asistencia:inicioSesion' %}">Iniciar sesión</a></p>
+    {% endif %}
+</header>

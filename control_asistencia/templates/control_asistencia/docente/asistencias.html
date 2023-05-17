@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Asistencias</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
+    {% include 'components/head.html' %}
+    {% include 'components/header.html' %}
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
 
-                <h1>Asistencias - {{materia.nombre}} - {{fecha}} </h1>
+                    <ul>
+                        {% if asistencias %}
+                            <h1>Asistencias - {{materia.nombre}} - {{fecha}} </h1>
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Cedula</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Asistio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for asistencia in asistencias %}
-                        <tr>
-                            <td>{{ asistencia.estudiante.username}}</td>
-                            <td>{{ asistencia.estudiante.nombre }}</td>
-                            <td>{{ asistencia.estudiante.apellido }}</td>
-                            <td>{{ asistencia.asistio }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Cedula</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido</th>
+                                        <th>Asistio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for asistencia in asistencias %}
+                                    <tr>
+                                        <td>{{ asistencia.estudiante.username}}</td>
+                                        <td>{{ asistencia.estudiante.nombre }}</td>
+                                        <td>{{ asistencia.estudiante.apellido }}</td>
+                                        <td>{{ asistencia.asistio }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            <p> Aún no se han computado asistencias para esta fecha.</p>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </body>
 </html>

@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Fechas de materia</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <a href="{% url 'control_asistencia:docente.index' %}">Volver al inicio</a>
-                <h1>Clases - {{materia.nombre}}</h1>
-                <ul>
-                    {% for fecha in fechas %}
-                    <li><a href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid fecha %}">{{ fecha }}</a></li>
-                    {% endfor %}
-                </ul>
+    {% include 'components/head.html' %}
+    {% include 'components/header.html' %}
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="{% url 'control_asistencia:docente.index' %}">Volver al inicio</a>
+                    <h1>Clases - {{materia.nombre}}</h1>
+                    <ul>
+                        {% if fechas %}
+                            {% for fecha in fechas %}
+                            <li><a href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid fecha %}">{{ fecha }}</a></li>
+                            {% endfor %}
+                        {% else %}
+                            <p> Aún no se han computado asistencias para esta materia.</p>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
-       </div>
-    </div>
+        </div>
+    </body>
 </html>

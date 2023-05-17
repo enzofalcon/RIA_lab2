@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
-    <meta charset="UTF-8">
-    <title>Menu docente</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>Bienvenido {{user.username}}</h1>
-                <h2>Menu docente</h2>
-                <ul>
-                    {% for materia in materias %}
-                    <li><a href="{% url 'control_asistencia:docente.seleccionar_fecha' materia.uid %}">{{ materia.nombre }}</a></li>
-                    {% endfor %}
-                </ul>
+    {% include 'components/head.html' %}
+    {% include 'components/header.html' %}
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Menu docente</h2>
+                    <ul>
+                        {% if materias %}
+                            {% for materia in materias %}
+                            <h3>{{ materia.nombre }}</h3>
+                            <li>
+                                <a href="{% url 'control_asistencia:docente.seleccionar_fecha' materia.uid %}">Ver asistencias</a>
+                                <a href="{% url 'control_asistencia:docente.generar_qr' materia.uid %}">Generar QR</a>
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                            <p> Aún no se han computado materias para este docente.</p>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-        <a href="{% url 'control_asistencia:cerrar_Sesion' %}">Cerrar sesión</a>
-</body>
+    </body>
 </html>
