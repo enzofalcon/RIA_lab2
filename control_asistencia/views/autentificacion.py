@@ -34,7 +34,6 @@ def cerrarSesion(request):
 Cerrarsesión
 """
 @login_required
-@group_required('Grupo_DOCENTES')
 def cerrar_Sesion(request):
     user = request.user
     materias = user.materiasDocente.all()
