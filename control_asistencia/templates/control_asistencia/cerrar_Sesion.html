@@ -3,10 +3,10 @@
     {% include 'components/head.html' %}
     {% include 'components/header.html' %}
     <body>
-            <div class="Mensaje">
-                <h1>Confirma que desea cerrar sesión</h1>
-            </div>
-            <a href="{% url 'control_asistencia:docente.index' %}">Ir al inicio</a><br>
-            <a href="{% url 'control_asistencia:cerrarSesion' %}">Salir</a>
+        <div class="Mensaje">
+            <h1>Confirma que desea cerrar sesión</h1>
+        </div>
+        <a href="{% url 'control_asistencia:docente.index' %}">Ir al inicio</a><br>
+        <a href="{% url 'control_asistencia:cerrarSesion' %}">Salir</a>
     </body>
 </html>

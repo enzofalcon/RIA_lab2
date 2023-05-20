@@ -15,7 +15,6 @@
             <h2>En caso de no tener cámara en tu dispostivo, ingresa a la dirección:</h2>
             <h3>{{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}</h3>
         </div>
-
         <a href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid qr.fecha %}">Ver asistencias</a>
     </body>
 

@@ -22,12 +22,10 @@
                                         <tr>
                                             <td>{{fecha}}</td>
                                             <td><a class="btn btn-info" href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid fecha %}">Ver asistencias</a></td>
-                                        </tr>
-                                        
+                                        </tr> 
                                     {% endfor %}
                                 </tbody>
                             </table>
-
                         {% else %}
                             <p> Aún no se han computado asistencias para esta materia.</p>
                         {% endif %}

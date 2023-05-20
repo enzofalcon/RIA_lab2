@@ -8,37 +8,36 @@
                 <div class="col-md-12">
                     <a class="btn btn-primary my-3" href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
                     <h1 class="mb-3">Asistencias - {{materia.nombre}} - {{fecha}} </h1>
-                        {% if estudiantes %}
-                         <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Cedula</th>
-                                        <th>Nombre</th>
-                                        <th>Apellido</th>
-                                        <th>Asistio</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for e in estudiantes %}
-                                    <tr>
-                                        <td>{{ e.username}}</td>
-                                        <td>{{ e.nombre }}</td>
-                                        <td>{{ e.apellido }}</td>
-                                        <td>
-                                            {% if e.id in asistencias %}
-                                            ✔️
-                                            {% else %}
-                                            ❌
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        {% else %}
-                            <p> Aún no se han computado asistencias para esta fecha.</p>
-                        {% endif %}
-
+                    {% if estudiantes %}
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Asistio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for e in estudiantes %}
+                                <tr>
+                                    <td>{{ e.username}}</td>
+                                    <td>{{ e.nombre }}</td>
+                                    <td>{{ e.apellido }}</td>
+                                    <td>
+                                        {% if e.id in asistencias %}
+                                        ✔️
+                                        {% else %}
+                                        ❌
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <p> Aún no se han computado asistencias para esta fecha.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

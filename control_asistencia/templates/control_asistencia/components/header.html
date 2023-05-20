@@ -1,26 +1,20 @@
 
 {% load static %}
 <header class="p-3 mb-3 border-bottom">
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
-        <div>CONTROL ASISTENCIA</div>
-
-    <div class="d-flex flex-row align-items-center">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div>CONTROL ASISTENCIA</div>
+      <div class="d-flex flex-row align-items-center">
         <div style="margin-right: 20px;">Bienvenido, {{ user.username }} </div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle p-1 bg-white text-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{% static 'user.png'%}" style="height: 48px; width: 48px;">
             </button>
-            
-                
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{% url 'control_asistencia:cerrar_Sesion' %}">Cerrar sesión</a>
-                </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{% url 'control_asistencia:cerrar_Sesion' %}">Cerrar sesión</a>
             </div>
-    </div> 
-
-       
+        </div>
+      </div> 
     </div>
-      </div>
-    </div>
-  </header>
+  </div>
+</header>
