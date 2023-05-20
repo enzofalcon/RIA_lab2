@@ -6,13 +6,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
-
-                    <ul>
-                        {% if asistencias %}
-                            <h1>Asistencias - {{materia.nombre}} - {{fecha}} </h1>
-
-                            <table class="table table-bordered">
+                    <a class="btn btn-primary my-3" href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
+                    <h1 class="mb-3">Asistencias - {{materia.nombre}} - {{fecha}} </h1>
+                        {% if estudiantes %}
+                         <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Cedula</th>
@@ -22,12 +19,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for asistencia in asistencias %}
+                                    {% for e in estudiantes %}
                                     <tr>
-                                        <td>{{ asistencia.estudiante.username}}</td>
-                                        <td>{{ asistencia.estudiante.nombre }}</td>
-                                        <td>{{ asistencia.estudiante.apellido }}</td>
-                                        <td>{{ asistencia.asistio }}</td>
+                                        <td>{{ e.username}}</td>
+                                        <td>{{ e.nombre }}</td>
+                                        <td>{{ e.apellido }}</td>
+                                        <td>
+                                            {% if e.id in asistencias %}
+                                            ✔️
+                                            {% else %}
+                                            ❌
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -35,7 +38,7 @@
                         {% else %}
                             <p> Aún no se han computado asistencias para esta fecha.</p>
                         {% endif %}
-                    </ul>
+
                 </div>
             </div>
         </div>

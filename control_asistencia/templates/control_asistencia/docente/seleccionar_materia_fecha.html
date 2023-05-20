@@ -6,13 +6,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{% url 'control_asistencia:docente.index' %}">Volver al inicio</a>
-                    <h1>Clases - {{materia.nombre}}</h1>
+                    <a class="btn btn-primary my-3" href="{% url 'control_asistencia:docente.index' %}">Volver al inicio</a>
+                    <h1 class="mb-3">Clases - {{materia.nombre}}</h1>
                     <ul>
                         {% if fechas %}
-                            {% for fecha in fechas %}
-                            <li><a href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid fecha %}">{{ fecha }}</a></li>
-                            {% endfor %}
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for fecha in fechas %}
+                                        <tr>
+                                            <td>{{fecha}}</td>
+                                            <td><a class="btn btn-info" href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid fecha %}">Ver asistencias</a></td>
+                                        </tr>
+                                        
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
                         {% else %}
                             <p> Aún no se han computado asistencias para esta materia.</p>
                         {% endif %}

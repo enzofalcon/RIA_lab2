@@ -6,19 +6,32 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Menu docente</h2>
-                    <ul>
-                        {% if materias %}
-                            {% for materia in materias %}
-                            <h3>{{ materia.nombre }}</h3>
-                            <li>
-                                <a href="{% url 'control_asistencia:docente.seleccionar_fecha' materia.uid %}">Ver asistencias</a>
-                                <a href="{% url 'control_asistencia:docente.qr_asistencia' materia.uid %}">Generar QR</a>
-                            </li>
-                            {% endfor %}
-                        {% else %}
-                            <p> Aún no se han computado materias para este docente.</p>
-                        {% endif %}
+                    <h2 class="my-3">Materias del docente</h2>
+                    {% if materias %}
+                    
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Materia</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for materia in materias %}
+                                        <tr>
+                                            <td>{{materia.nombre}}</td>
+                                            <td>
+                                                <a class="btn btn-primary" href="{% url 'control_asistencia:docente.seleccionar_fecha' materia.uid %}">Ver asistencias</a>
+                                                <a class="btn btn-info" href="{% url 'control_asistencia:docente.qr_asistencia' materia.uid %}">Generar QR</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+
+                    {% else %}
+                        <p> Aún no se han registrado materias para este docente.</p>
+                    {% endif %}
                     </ul>
                 </div>
             </div>
