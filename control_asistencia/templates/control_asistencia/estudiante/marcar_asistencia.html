@@ -3,16 +3,24 @@
     {% include 'components/head.html' %}
     {% include 'components/header.html' %}
     <body>
-        <h2>{{materia.nombre}}</h2>
-        
-        <h3 
-        {% if error %}
-            style="color: red"
-        {% else %}
-            style="color: black"
-        {% endif %}>
-            {{mensaje}}
-        </h3>
-        <a href="{% url 'control_asistencia:estudiante.index'%}">Volver al inicio</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn btn-primary my-3" href="{% url 'control_asistencia:estudiante.index'%}">Volver al inicio</a>
+                    <h1 class="mb-3">Asistencia - {{materia.nombre}} - {{qr.fecha}} </h1>
+
+                    <div role="alert"
+                        {% if error %}
+                            class="alert alert-danger text-center" 
+                        {% else %}
+                            class="alert alert-success text-center" 
+                        {% endif %}>
+                            <h3>{{mensaje}}</h3>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

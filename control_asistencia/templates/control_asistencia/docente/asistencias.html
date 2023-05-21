@@ -22,8 +22,8 @@
                                 {% for e in estudiantes %}
                                 <tr>
                                     <td>{{ e.username}}</td>
-                                    <td>{{ e.nombre }}</td>
-                                    <td>{{ e.apellido }}</td>
+                                    <td>{{ e.first_name }}</td>
+                                    <td>{{ e.last_name }}</td>
                                     <td>
                                         {% if e.id in asistencias %}
                                         ✔️

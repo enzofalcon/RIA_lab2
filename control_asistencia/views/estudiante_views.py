@@ -49,12 +49,12 @@ def marcar_asistencia(request, id):
 
     #Marcar asistencia solo si ya no existe una asistencia para esta fecha, materia y estudiante.
     if Asistencia.objects.filter(estudiante_id = request.user.id, materia_id = materia.uid, fecha = timezone.now().strftime("%Y-%m-%d")).exists():
-        mensaje = 'Ya has marcado tu asistencia (VER)'
+        mensaje = 'Ya has registrado tu asistencia previamente'
     elif materia.estudiantes.filter(id=request.user.id).exists():
         Asistencia(fecha = timezone.now().strftime("%Y-%m-%d"), estudiante_id = request.user.id, materia_id = materia.uid).save()
         mensaje = 'Has registrado tu asistencia correctamente'
         error = False
     else:
-        mensaje = 'Este estudiante no está registrado en la materia ' + materia.nombre
+        mensaje = 'Este estudiante no está registrado en la materia'
 
-    return render(request, "control_asistencia/estudiante/marcar_asistencia.html", {"materia":materia, "mensaje":mensaje, "error":error})
+    return render(request, "control_asistencia/estudiante/marcar_asistencia.html", {"qr":qr, "materia":materia, "mensaje":mensaje, "error":error})

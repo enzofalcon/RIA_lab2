@@ -3,9 +3,9 @@
 <header class="p-3 mb-3 border-bottom">
   <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-      <div>CONTROL ASISTENCIA</div>
+      <div style="font-weight: bolder">CONTROL ASISTENCIA</div>
       <div class="d-flex flex-row align-items-center">
-        <div style="margin-right: 20px;">Bienvenido, {{ user.username }} </div>
+        <div style="margin-right: 20px;">Bienvenido, {{ user.first_name }} </div>
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle p-1 bg-white text-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{% static 'user.png'%}" style="height: 48px; width: 48px;">
