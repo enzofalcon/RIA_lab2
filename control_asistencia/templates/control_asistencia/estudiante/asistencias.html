@@ -6,8 +6,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{% url 'control_asistencia:estudiante.index' %}">Volver atras</a>
-                    <h1>Asistencias a {{materia.nombre}}</h1>
+                    <a class="btn btn-primary my-3" href="#" onclick="javascript:history.go(-1)">Volver atrás</a>
+                    <h1 class="mb-3">Asistencias - {{materia.nombre}} </h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -23,7 +23,7 @@
                                 {% endfor %}
                             {% else %}
                                 <tr>
-                                    <td>Aún no se han computado asistencias para esta materia.</td>
+                                    <td>Aún no se han registrado asistencias para esta materia.</td>
                                 </tr>
                             {% endif %}
                         </tbody>

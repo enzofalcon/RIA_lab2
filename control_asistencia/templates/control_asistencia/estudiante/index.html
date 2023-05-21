@@ -6,16 +6,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Menu estudiante</h2>
-                    <ul>
-                        {% if materias %}
+                    <h2 class="my-3">Materias del estudiante</h2>
+                    {% if materias %}
+                        <table class="table">
+                            <thead>
+                                <tr><th scope="col">Materia</th></tr>
+                            </thead>
+                            <tbody>
                             {% for materia in materias %}
-                                <li><a href="{% url 'control_asistencia:estudiante.asistencias_de_materia' materia.uid %}">{{ materia.nombre }}</a></li>
+                                <tr>
+                                    <td>{{materia.nombre}}</td>
+                                    <td>
+                                        <a class="btn btn-primary" href="{% url 'control_asistencia:estudiante.asistencias_de_materia' materia.uid %}">Ver asistencias</a>
+                                    </td>
+                                </tr>
                             {% endfor %}
-                        {% else %}
-                            <p> Aún no se han computado materias para este estudiante.</p>
-                        {% endif %}
-                    </ul>
+                        </tbody>
+                    </table>
+                    {% else %}
+                        <p> Aún no se han registrado materias para este estudiante.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

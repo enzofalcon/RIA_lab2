@@ -3,10 +3,16 @@
     {% include 'components/head.html' %}
     {% include 'components/header.html' %}
     <body>
-        <div class="Mensaje">
-            <h1>Confirma que desea cerrar sesión</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">  
+                    <div class="card-body p-5 text-center">          
+                        <h1>Confirma que desea cerrar sesión</h1>
+                        <a class="btn btn-primary" href="{% url 'control_asistencia:docente.index' %}">Ir al inicio</a><br><br>
+                        <a class="btn btn-primary" href="{% url 'control_asistencia:cerrarSesion' %}">Salir</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="{% url 'control_asistencia:docente.index' %}">Ir al inicio</a><br>
-        <a href="{% url 'control_asistencia:cerrarSesion' %}">Salir</a>
     </body>
 </html>
