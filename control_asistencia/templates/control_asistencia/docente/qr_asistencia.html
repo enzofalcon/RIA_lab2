@@ -2,25 +2,34 @@
 <html>    
     {% include 'components/head.html' %}
     {% include 'components/header.html' %}
-    <a href="{% url 'control_asistencia:docente.index' %}">Volver atras</a>
-    <h1>Registra tu asistencia para la materia {{id}}</h1> 
     <body>
-        <div class="Texto_QR">
-            <h2>Escanea el siguiente código QR desde tu celular</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex align-items-center justify-content-between my-3">
+                        <a class="btn btn-primary my-3" href="{% url 'control_asistencia:docente.index' %}">Volver atrás</a>
+                        <a class="btn btn-info my-3" href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid qr.fecha %}">Ver asistencias</a>    
+                    </div>
+
+                    <h1 class="mb-3">Registra tu asistencia para la materia {{materia.nombre}} - {{qr.fecha}}</h1>
+                    
+                    <h3 class="text-center my-2">Escanea el siguiente código QR desde tu celular</h3>
+                    
+                    <div class="text-center my-5">
+                        <img class="align-center my-2" id="qr" src="" alt="CARGANDO" width="300px" height="300px" align="center"/>
+                    </div>
+                    
+                    <h2 class="text-center my-2">En caso de no tener cámara en tu dispostivo, ingresa a la dirección:</h2>
+                    
+                    <h3 class="text-center my-2" style="color:blue">{{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}</h3>
+                </div>
+            </div>
         </div>
-        <div class="imagen">
-            <img id="qr" src="" alt="En caso de queno sea visible el QR, ingresar al siguiente." width="400" height="400" align="center"/>
-        </div>
-        <div class="Texto_QR">
-            <h2>En caso de no tener cámara en tu dispostivo, ingresa a la dirección:</h2>
-            <h3>{{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}</h3>
-        </div>
-        <a href="{% url 'control_asistencia:docente.asistencias_fecha' materia.uid qr.fecha %}">Ver asistencias</a>
     </body>
 
 
     <script>
-        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}`)
+        fetch(`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={{ request.scheme }}://{{ request.META.HTTP_HOST }}{%url 'control_asistencia:estudiante.marcar_asistencia' qr.uid%}`)
         .then(response => response.blob())
         .then(blob => {
           const urlImagen = URL.createObjectURL(blob);
@@ -29,4 +38,5 @@
           imagen.alt = ''; 
         });
     </script>
+
 </html>

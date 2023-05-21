@@ -7,9 +7,12 @@
             <div class="row">
                 <div class="col-md-12">  
                     <div class="card-body p-5 text-center">          
-                        <h1>Confirma que desea cerrar sesión</h1>
-                        <a class="btn btn-primary" href="{% url 'control_asistencia:docente.index' %}">Ir al inicio</a><br><br>
-                        <a class="btn btn-primary" href="{% url 'control_asistencia:cerrarSesion' %}">Salir</a>
+                        <h1>¿Desea cerrar sesión?</h1>
+                        <div class="d-flex align-items-center justify-content-center my-3">
+                            <a class="btn btn-danger mr-5"  href="#" onclick="javascript:history.go(-1)">No</a>
+                            <a class="btn btn-success" href="{% url 'control_asistencia:cerrarSesion' %}">Si</a>
+                        </div>
+                       
                     </div>
                 </div>
             </div>
